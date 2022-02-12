@@ -19,10 +19,8 @@ connectDB()
 //=======Middleware======//
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-
-app.use(cors({
-    origin: true
-}))
+app.use(cors())
+app.options('*', cors())
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
 
 app.use(session({
